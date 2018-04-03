@@ -1,16 +1,13 @@
 class Gopass < Formula
   desc "The slightly more awesome Standard Unix Password Manager for Teams."
   homepage "https://www.justwatch.com/gopass/"
-  url "https://github.com/justwatchcom/gopass/releases/download/v1.6.11/gopass-1.6.11.tar.gz"
-  version "1.6.11"
-  sha256 "de5b27f81649548292dc83da98e8e46b9b92d8b0bb012797dee44b3207090c67"
-  head "https://github.com/justwatchcom/gopass.git"
-  
+  url "https://github.com/dominikschulz/gopass/archive/v1.7.0.tar.gz"
+  head "https://github.com/dominikschulz/gopass.git"
+  version "1.7.0"
+  sha256 "85da7a681ab6d1a2c0a44a5286e46f8bf785387dc256a74eb220d8beac82500c"
+
+  depends_on "git"depends_on "gnupg"
   depends_on "go" => :build
-  
-  depends_on "git"
-  depends_on "gnupg"
-  
 
   def install
     ENV["GOPATH"] = buildpath
@@ -25,7 +22,6 @@ class Gopass < Formula
     system bin/"gopass completion zsh > zsh_completion.zsh"
     bash_completion.install "bash_completion.bash"
     zsh_completion.install "zsh_completion.zsh"
-    
   end
 
   def caveats; <<-EOS.undent
@@ -41,12 +37,10 @@ class Gopass < Formula
     More information:
       https://www.justwatch.com/gopass
       https://github.com/justwatchcom/gopass/README.md
-    
   EOS
   end
+
   test do
     assert_match version.to_s, shell_output("#{bin}/gopass version")
-    
   end
-
 end
