@@ -4,9 +4,10 @@ class Gopass < Formula
   url "https://github.com/dominikschulz/gopass/archive/v1.7.0.tar.gz"
   head "https://github.com/dominikschulz/gopass.git"
   version "1.7.0"
-  sha256 "85da7a681ab6d1a2c0a44a5286e46f8bf785387dc256a74eb220d8beac82500c"
-
-  depends_on "git"depends_on "gnupg"
+  sha256 "01bf9e50f8132e5d8b7755bc29767fd70a28ab6c810be26dd9e0f15841b646ee"
+  
+  depends_on "git"
+  depends_on "gnupg"
   depends_on "go" => :build
 
   def install
